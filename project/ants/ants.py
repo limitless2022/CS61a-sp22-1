@@ -2,6 +2,8 @@
 
 from email.errors import NonPrintableDefect
 import random
+
+from numpy import full
 from ucb import main, interact, trace
 from collections import OrderedDict
 
@@ -550,6 +552,7 @@ class Bee(Insect):
         or moves to the exit of its current place otherwise.
 
         gamestate -- The GameState, used to access game state information.
+        用于访问游戏状态。
         """
         destination = self.place.exit
         p = self.place.entrance 
@@ -783,7 +786,7 @@ class GameState:
         dimensions -- a pair containing the dimensions of the game layout
         """
         self.time = 0
-        self.food = food
+        self.food = float('inf')
         self.strategy = strategy
         self.beehive = beehive
         self.has_queen = False
